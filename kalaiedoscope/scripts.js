@@ -15,6 +15,12 @@ function setup() {
   clearButton.mousePressed(clearCanvas);
   slider = createSlider(1, 32, 10, 0.1);
   //colorMode(HSB);
+
+  saveButton.style('font-size', '20px')
+  saveButton.style('margin', '18px 14px 18px 18px')
+  clearButton.style('font-size', '20px')
+  clearButton.style('margin', '18px 14px 18px 0px')
+
 }
 
 function saveSnowflake() {
@@ -25,7 +31,17 @@ function clearCanvas() {
   background(127);
 }
 
+function borderfill() {
+  strokeWeight(4);
+stroke(0,0,0);
+rect(1,0,0,height);
+rect(width-1,0,0,height);
+rect(0,1,height,0);
+rect(0,height-1,width,height);
+}
+
 function draw() {
+  borderfill();
   translate(width / 2, height / 2);
 
   if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
